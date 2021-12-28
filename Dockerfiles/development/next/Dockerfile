@@ -1,10 +1,5 @@
 FROM node:14
 
-# Not available for linux
-# RUN apk add --no-cache libc6-compat
-
-RUN npm i -g npm && npm -v
-
 ENV NODE_ENV development
 ENV PORT 3000
 
@@ -23,7 +18,6 @@ COPY . /client/src/app
 
 # Building app
 RUN npm run build
-EXPOSE 3000
 
 # Running the app
 CMD "npm" "run" "dev"
